@@ -546,7 +546,7 @@ textarea:focus {
 .checkbox-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  gap: 2px;
 }
 
 .checkbox-card {
