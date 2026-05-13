@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIF Admin</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <main class="admin-page">
+        <section class="login-card" id="loginView">
+            <h1>VIF Admin</h1>
+            <p>Log ind for at se ansøgninger.</p>
+
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Adgangskode" required>
+                <button type="submit">Log ind</button>
+            </form>
+
+            <p class="error-message" id="loginError"></p>
+        </section>
+
+        <section class="dashboard hidden" id="dashboardView">
+            <header class="dashboard-header">
+                <div>
+                    <h1>VIF Admin</h1>
+                    <p><span id="applicationCount">0</span> besvarelser</p>
+                </div>
+
+                <div class="header-actions">
+                    <button id="downloadCsvBtn">Download CSV</button>
+                    <button id="logoutBtn">Log ud</button>
+                </div>
+            </header>
+
+            <div class="filters">
+                <input id="searchInput" type="search" placeholder="Søg navn, mail eller telefon...">
+                <select id="teamFilter">
+                    <option value="alle">Alle</option>
+                    <option value="boernehold">Børnehold</option>
+                    <option value="drengehold">Drengehold</option>
+                    <option value="ungdomshold">Ungdomshold</option>
+                    <option value="dansehold">Dansehold</option>
+                    <option value="voksenhold">Voksenhold</option>
+                </select>
+            </div>
+
+            <div class="admin-layout">
+                <div class="table-card">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Navn</th>
+                                <th>Alder</th>
+                                <th>Mail</th>
+                                <th>Telefon</th>
+                                <th>Hold</th>
+                            </tr>
+                        </thead>
+                        <tbody id="applicationsTable"></tbody>
+                    </table>
+                </div>
+
+                <aside class="detail-card" id="detailCard">
+                    <p>Vælg en ansøgning for at se detaljer.</p>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+</body>
+
+</html>
