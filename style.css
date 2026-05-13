@@ -440,7 +440,7 @@ section {
 .media-four {
   background:
     linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("dansehold.jpg") center/cover;
+    url("dansehold.JPG") center/cover;
 }
 
 .media-five {
