@@ -49,3 +49,8 @@ applicationForm.addEventListener("submit", async function (event) {
 
   console.log("Ansøgning sendt!");
 });
+
+const reelVideo = document.querySelector(".reel-video");
+
+reelVideo.volume = 0.5;
+
