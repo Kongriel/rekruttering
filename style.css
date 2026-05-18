@@ -646,7 +646,7 @@ textarea:focus {
   transition: opacity 0.3s ease;
 }
 
-.reel-wrapper:has(video:playing) .video-play {
+.video-play.hidden {
   opacity: 0;
 }
 
