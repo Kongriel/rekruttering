@@ -50,7 +50,20 @@ applicationForm.addEventListener("submit", async function (event) {
   console.log("Ansøgning sendt!");
 });
 
-const reelVideo = document.querySelector(".reel-video");
-
 reelVideo.volume = 0.5;
+
+const reelVideo = document.querySelector(".reel-video");
+const playOverlay = document.querySelector(".video-play");
+
+reelVideo.addEventListener("play", () => {
+  playOverlay.classList.add("hidden");
+});
+
+reelVideo.addEventListener("pause", () => {
+  playOverlay.classList.remove("hidden");
+});
+
+reelVideo.addEventListener("ended", () => {
+  playOverlay.classList.remove("hidden");
+});
 
