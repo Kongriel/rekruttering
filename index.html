@@ -92,76 +92,45 @@
             </div>
         </section>
 
-        <section class="media-section" id="holdene">
+
+
+        <section class="reel-section">
             <div class="section-heading">
-                <div class="label2">Se stemningen</div>
-                <h2>Mød holdene.</h2>
-                <p>Få et indblik i hvilke hold du kan undervise på</p>
+                <div class="label">Stemningen som Instruktør</div>
+                <h2>Lyt til vores instruktører.</h2>
+
+                <p>
+                    Et indblik i livet som instruktør — direkte fra dem der står i hallen hver uge.
+                </p>
             </div>
 
-            <div class="media-scroll">
-                <article class="media-card">
-                    <div class="media-preview media-one">
-                        <div class="play">▶</div>
-                    </div>
-                    <div class="media-text">
-                        <h3>Børne Hold, 3 - 12 år</h3>
-                        <p>blablablabl noget her</p>
-                        <a class="insta-link" href="#">Instagram →</a>
-                    </div>
-                </article>
+            <div class="reel-wrapper">
 
-                <article class="media-card">
-                    <div class="media-preview media-three">
-                        <div class="play">▶</div>
-                    </div>
-                    <div class="media-text">
-                        <h3>Drenge Hold, 7 - 13 år</h3>
-                        <p>Ren fart over feltet</p>
-                        <a class="insta-link" href="#">Instagram →</a>
-                    </div>
-                </article>
+                <div class="video-play">
+                    ▶
+                </div>
 
-                <article class="media-card">
-                    <div class="media-preview media-four">
-                        <div class="play">▶</div>
-                    </div>
-                    <div class="media-text">
-                        <h3>Danse Hold, 7 - 18 år </h3>
-                        <p>blablalbsa dans derudaf</p>
-                        <a class="insta-link" href="#">Instagram →</a>
-                    </div>
-                </article>
+                <video class="reel-video" controls playsinline preload="metadata" poster="thumbnail.png">
+                    <source src="valby-reel.mp4" type="video/mp4">
+                </video>
 
-                <article class="media-card">
-                    <div class="media-preview media-two">
-                        <div class="play">▶</div>
-                    </div>
-                    <div class="media-text">
-                        <h3>Ungdoms Hold, 13 - 18 år</h3>
-                        <p>Fællesskab, energi og udvikling på banen.</p>
-                        <a class="insta-link" href="#">Instagram →</a>
-                    </div>
-                </article>
-
-
-
-                <article class="media-card">
-                    <div class="media-preview media-five">
-                        <div class="play">▶</div>
-                    </div>
-                    <div class="media-text">
-                        <h3>Voksen Hold, 18+</h3>
-                        <p>blablalbsa voksne derudaf</p>
-                        <a class="insta-link" href="#">Instagram →</a>
-                    </div>
-                </article>
             </div>
         </section>
 
+
+
+
+
         <section class="form-section" id="ansoeg">
+            <div class="form-bg-gallery">
+                <img src="boernehold.JPG" alt="">
+                <img src="dansehold.JPG" alt="">
+                <img src="drengehold.jpg" alt="">
+                <img src="ungdomshold.jpg" alt="">
+                <img src="voksenhold.JPG" alt="">
+            </div>
             <div class="form-card">
-                <h2>Klar til at høre mere?</h2>
+                <h2>Vil du være Instruktør?</h2>
                 <p>Udfyld formularen — det tager kun 2 minutter. Vi kontakter dig til en uforpligtende snak.</p>
 
                 <form id="applicationForm">
@@ -218,7 +187,7 @@
 
                         <div class="form-group full">
                             <label for="experience">Har du tidligere erfaring?</label>
-                            <textarea id="experience" name="experience"
+                            <textarea id="experience" name="experience" required
                                 placeholder="Skriv kort om din erfaring, eller hvorfor du har lyst til at blive instruktør."></textarea>
                         </div>
                         <div class="form-group full">
