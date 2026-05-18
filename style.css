@@ -646,8 +646,17 @@ textarea:focus {
   transition: opacity 0.3s ease;
 }
 
-.video-play.hidden {
+.video-play {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.video-play.is-hidden {
   opacity: 0;
+  visibility: hidden;
 }
 
 .form-section {
