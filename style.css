@@ -3,6 +3,7 @@
   --navy-soft: #0d274a;
   --blue: #123866;
   --gold: #15c0ff;
+  --gold1: #0077a2;
   --gold-dark: #15c0ff;
   --white: #ffffff;
   --off-white: #f6f8fb;
@@ -374,111 +375,10 @@ section {
   font-size: 14px;
 }
 
-.media-section,
 .form-section,
 .footer {
   background: var(--navy);
   color: var(--white);
-}
-
-.media-section {
-  border-radius: 34px 34px 0 0;
-}
-
-.media-section .section-heading h2 {
-  color: var(--white);
-}
-
-.media-section .section-heading p {
-  color: rgba(255, 255, 255, 0.72);
-}
-
-.media-scroll {
-  display: flex;
-  gap: 14px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-  margin-right: -20px;
-  padding-right: 20px;
-}
-
-.media-card {
-  min-width: 76%;
-  scroll-snap-align: start;
-  border-radius: 26px;
-  overflow: hidden;
-  background: var(--navy-soft);
-  border: 1px solid var(--border);
-}
-
-.media-preview {
-  aspect-ratio: 4 / 5;
-  display: flex;
-  align-items: flex-end;
-  padding: 18px;
-}
-
-.media-one {
-  background:
-    linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("boernehold.jpg") center/cover;
-}
-
-.media-two {
-  background:
-    linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("ungdomshold.jpg") center/cover;
-}
-
-.media-three {
-  background:
-    linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("drengehold.jpg") center/cover;
-}
-
-.media-four {
-  background:
-    linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("dansehold.JPG") center/cover;
-}
-
-.media-five {
-  background:
-    linear-gradient(180deg, rgba(255, 166, 0, 0.485) 0%, rgba(255, 140, 0, 0.28) 35%, rgba(7, 26, 51, 0.908) 100%),
-    url("voksenhold.JPG") center/cover;
-}
-
-.play {
-  width: 52px;
-  height: 52px;
-  border-radius: 999px;
-  background: var(--gold);
-  color: var(--navy);
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-}
-
-.media-text {
-  padding: 18px;
-}
-
-.media-text h3 {
-  margin-bottom: 5px;
-  font-size: 18px;
-}
-
-.media-text p {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
-  margin-bottom: 14px;
-}
-
-.insta-link {
-  color: var(--gold);
-  font-weight: 800;
-  font-size: 14px;
 }
 
 .form-section {
@@ -488,9 +388,16 @@ section {
 .form-card {
   background: linear-gradient(180deg, #eef5ff 0%, #e7f1ff 100%);
   color: var(--text);
+
   border-radius: 30px;
+
   padding: 22px;
+
   box-shadow: var(--shadow);
+
+  max-width: 86vw;
+
+  margin: 0 auto;
 }
 
 .form-card h2 {
@@ -628,22 +535,6 @@ textarea:focus {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .media-scroll {
-    display: flex;
-    gap: 18px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-
-    margin-right: calc((100vw - 100%) / -2);
-    padding-right: 64px;
-    padding-bottom: 18px;
-  }
-
-  .media-card {
-    min-width: calc((100% - 45px) / 3.5);
-    scroll-snap-align: start;
-  }
-
   .form-card {
     max-width: 520px;
     margin: 0 auto;
@@ -657,5 +548,163 @@ textarea:focus {
 
   .form-group.full {
     grid-column: 1 / -1;
+  }
+}
+
+.reel-section {
+  position: relative;
+  padding: 90px 20px;
+  background: var(--navy);
+  overflow: hidden;
+  border-radius: 34px 34px 0 0;
+}
+
+.reel-section .section-heading {
+  max-width: 620px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.reel-section .section-heading h2 {
+  color: white;
+}
+
+.reel-section .section-heading p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.reel-wrapper {
+  position: relative;
+
+  width: min(100%, 340px);
+
+  margin: 0 auto;
+
+  border-radius: 34px;
+
+  overflow: hidden;
+
+  background: #000;
+  border: 6px solid rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+
+  transform: perspective(1200px) rotateX(2deg);
+}
+
+.reel-wrapper::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.18));
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+.reel-section .label {
+  color: var(--gold-dark);
+}
+.reel-video {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  background: black;
+}
+
+.reel-wrapper:hover {
+  transform: perspective(1200px) rotateX(0deg) translateY(-4px);
+
+  transition: 0.35s ease;
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 72px;
+  color: white;
+
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.42));
+
+  z-index: 3;
+
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.reel-wrapper:has(video:playing) .video-play {
+  opacity: 0;
+}
+
+.form-section {
+  position: relative;
+  overflow: hidden;
+
+  padding: 175px 20px 90px;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+.form-bg-gallery::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(180deg, rgba(7, 26, 51, 0.15) 0%, rgba(7, 26, 51, 0.35) 25%, rgba(7, 26, 51, 0.78) 55%, rgba(7, 26, 51, 0.96) 78%, var(--navy) 100%);
+}
+
+.form-bg-gallery img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: saturate(1.15) contrast(1.08);
+}
+.form-bg-gallery {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: auto;
+  top: -100px;
+
+  width: max-content;
+  height: 680px;
+
+  transform: translateX(-50%);
+
+  z-index: 0;
+
+  display: grid;
+  grid-template-columns: repeat(5, 300px);
+
+  opacity: 0.52;
+}
+
+.form-card {
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 700px) {
+  .form-bg-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    height: 600px;
   }
 }
