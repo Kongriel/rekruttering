@@ -50,20 +50,24 @@ applicationForm.addEventListener("submit", async function (event) {
   console.log("Ansøgning sendt!");
 });
 
-reelVideo.volume = 0.5;
+document.addEventListener("DOMContentLoaded", () => {
+  const reelVideo = document.querySelector(".reel-video");
+  const playOverlay = document.querySelector(".video-play");
 
-const reelVideo = document.querySelector(".reel-video");
-const playOverlay = document.querySelector(".video-play");
+  if (!reelVideo || !playOverlay) return;
 
-reelVideo.addEventListener("play", () => {
-  playOverlay.classList.add("hidden");
-});
+  reelVideo.volume = 0.5;
 
-reelVideo.addEventListener("pause", () => {
-  playOverlay.classList.remove("hidden");
-});
+  reelVideo.addEventListener("play", () => {
+    playOverlay.classList.add("is-hidden");
+  });
 
-reelVideo.addEventListener("ended", () => {
-  playOverlay.classList.remove("hidden");
+  reelVideo.addEventListener("pause", () => {
+    playOverlay.classList.remove("is-hidden");
+  });
+
+  reelVideo.addEventListener("ended", () => {
+    playOverlay.classList.remove("is-hidden");
+  });
 });
 
