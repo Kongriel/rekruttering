@@ -717,3 +717,21 @@ textarea:focus {
     height: 600px;
   }
 }
+
+.optional {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.field-error {
+  display: none;
+  margin-top: 8px;
+  color: #b42318;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.field-error.show {
+  display: block;
+}
+
