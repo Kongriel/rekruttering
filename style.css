@@ -735,3 +735,74 @@ textarea:focus {
   display: block;
 }
 
+.form-faq {
+  display: grid;
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.form-faq details {
+  border: 1px solid #d9e0ea;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  overflow: hidden;
+}
+
+.form-faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.form-faq summary::-webkit-details-marker {
+  display: none;
+}
+
+.form-faq summary::after {
+  content: "+";
+  float: right;
+  color: var(--blue);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.form-faq details[open] summary::after {
+  content: "–";
+}
+
+.form-faq p {
+  padding: 0 16px 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.gdpr-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #d9e0ea;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.58);
+  cursor: pointer;
+}
+
+.gdpr-check input {
+  width: 18px;
+  height: 18px;
+  min-height: auto;
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--navy);
+}
+
+.gdpr-check span {
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
