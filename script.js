@@ -7,44 +7,97 @@ const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
 const applicationForm = document.querySelector("#applicationForm");
 const successMessage = document.querySelector("#successMessage");
 
+const phoneInput = document.querySelector("#phone");
+const ageInput = document.querySelector("#age");
+const teamsError = document.querySelector("#teamsError");
+
+if (phoneInput) {
+  phoneInput.addEventListener("input", () => {
+    phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 8);
+  });
+}
+
+if (ageInput) {
+  ageInput.addEventListener("input", () => {
+    ageInput.value = ageInput.value.replace(/\D/g, "").slice(0, 3);
+  });
+}
+
 applicationForm.addEventListener("submit", async function (event) {
   event.preventDefault();
 
-  // Hent alle data fra formen
   const formData = new FormData(applicationForm);
 
-  const applicant = {
-    name: formData.get("name"),
-    age: Number(formData.get("age")),
-    email: formData.get("email"),
-    phone: formData.get("phone"),
+  const selectedTeams = formData.getAll("teams");
 
-    // Flere valgte hold
-    teams: formData.getAll("teams"),
-
-    experience: formData.get("experience"),
-
-    ideas: formData.get("ideas"),
-  };
-
-  console.log("Sender til Supabase:", applicant);
-
-  // Send til Supabase
-  const { error } = await supabaseClient.from("applications").insert([applicant]);
-
-  // Error handling
-  if (error) {
-    console.error("Supabase fejl:", error);
-
-    alert("Noget gik galt. Prøv igen.");
+  if (selectedTeams.length === 0) {
+    if (teamsError) {
+      teamsError.textContent = "Vælg mindst ét hold.";
+      teamsError.classList.add("show");
+    } else {
+      alert("Vælg mindst ét hold.");
+    }
 
     return;
   }
 
-  // Success
-  successMessage.classList.add("show");
+  if (teamsError) {
+    teamsError.textContent = "";
+    teamsError.classList.remove("show");
+  }
 
-  // Reset form
+  const name = formData.get("name").trim();
+  const age = formData.get("age").trim();
+  const email = formData.get("email").trim();
+  const phone = formData.get("phone").trim();
+  const experience = formData.get("experience").trim();
+  const ideas = formData.get("ideas").trim();
+
+  if (!name || !age || !email || !phone || !experience) {
+    alert("Udfyld venligst alle påkrævede felter.");
+    return;
+  }
+
+  if (!/^\d+$/.test(age)) {
+    alert("Alder må kun indeholde tal.");
+    return;
+  }
+
+  if (!/^\d{8}$/.test(phone)) {
+    alert("Telefonnummer skal være 8 cifre.");
+    return;
+  }
+
+  const applicant = {
+    name: name,
+    age: Number(age),
+    email: email,
+    phone: phone,
+    teams: selectedTeams,
+    experience: experience,
+    ideas: ideas || null,
+  };
+
+  console.log("Sender til Supabase:", applicant);
+
+  const submitButton = applicationForm.querySelector(".submit-btn");
+  const originalButtonText = submitButton.textContent;
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Sender...";
+
+  const { error } = await supabaseClient.from("applications").insert([applicant]);
+
+  submitButton.disabled = false;
+  submitButton.textContent = originalButtonText;
+
+  if (error) {
+    console.error("Supabase fejl:", error);
+    alert("Noget gik galt. Prøv igen.");
+    return;
+  }
+
+  successMessage.classList.add("show");
   applicationForm.reset();
 
   console.log("Ansøgning sendt!");
@@ -70,4 +123,3 @@ document.addEventListener("DOMContentLoaded", () => {
     playOverlay.classList.remove("is-hidden");
   });
 });
-
