@@ -97,10 +97,10 @@
         <section class="reel-section">
             <div class="section-heading">
                 <div class="label">Stemningen som Instruktør</div>
-                <h2>Lyt til vores instruktører.</h2>
+                <h2>Lyt til vores instruktører</h2>
 
                 <p>
-                    Et indblik i livet som instruktør — direkte fra dem der står i hallen hver uge.
+                    Direkte fra dem der står i hallen hver uge.
                 </p>
             </div>
 
@@ -122,37 +122,46 @@
 
 
         <section class="form-section" id="ansoeg">
-            <div class="form-bg-gallery">
-                <img src="boernehold.jpg" alt="">
+            <div class="form-bg-gallery" aria-hidden="true">
+                <img src="boernehold.JPG" alt="">
                 <img src="dansehold.JPG" alt="">
                 <img src="drengehold.jpg" alt="">
                 <img src="ungdomshold.jpg" alt="">
                 <img src="voksenhold.JPG" alt="">
             </div>
+
             <div class="form-card">
-                <h2>Bliv Instruktør i VIF</h2>
-                <p>Udfyld formularen — det tager kun 2 minutter. Vi kontakter dig til en uforpligtende snak.</p>
+                <h2>Bliv instruktør i VIF</h2>
+
+                <p>
+                    Udfyld formularen — det tager kun 2 minutter.
+                    Vi kontakter dig til en uforpligtende snak.
+                </p>
 
                 <form id="applicationForm">
                     <div class="form-grid">
                         <div class="form-group">
                             <label for="name">Navn</label>
-                            <input id="name" name="name" type="text" placeholder="Dit navn" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="age">Alder</label>
-                            <input id="age" name="age" type="number" placeholder="Din alder" min="13" required />
+                            <input id="name" name="name" type="text" placeholder="Dit navn" autocomplete="name"
+                                required />
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" name="email" type="email" placeholder="din@email.dk" required />
+                            <input id="email" name="email" type="email" placeholder="din@email.dk" autocomplete="email"
+                                required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="age">Alder</label>
+                            <input id="age" name="age" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="3"
+                                placeholder="Din alder" required />
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Telefon</label>
-                            <input id="phone" name="phone" type="tel" placeholder="20 12 34 56" required />
+                            <input id="phone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{8}"
+                                maxlength="8" placeholder="20123456" autocomplete="tel" required />
                         </div>
 
                         <div class="form-group full">
@@ -161,28 +170,31 @@
                             <div class="checkbox-grid">
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="teams" value="boernehold">
-                                    <span>Børne Hold</span>
+                                    <span>Børnehold</span>
                                 </label>
 
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="teams" value="drengehold">
-                                    <span>Drenge Hold</span>
+                                    <span>Drengehold</span>
                                 </label>
 
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="teams" value="ungdomshold">
-                                    <span>Ungdoms Hold</span>
+                                    <span>Ungdomshold</span>
                                 </label>
 
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="teams" value="dansehold">
-                                    <span>Danse Hold</span>
+                                    <span>Dansehold</span>
                                 </label>
+
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="teams" value="voksenhold">
-                                    <span>Voksen Hold</span>
+                                    <span>Voksenhold</span>
                                 </label>
                             </div>
+
+                            <p class="field-error" id="teamsError"></p>
                         </div>
 
                         <div class="form-group full">
@@ -190,20 +202,28 @@
                             <textarea id="experience" name="experience" required
                                 placeholder="Skriv kort om din erfaring, eller hvorfor du har lyst til at blive instruktør."></textarea>
                         </div>
+
                         <div class="form-group full">
-                            <label for="ideas">Har du gode ideer?</label>
+                            <label for="ideas">
+                                Har du gode ideer?
+                                <span class="optional">(valgfrit)</span>
+                            </label>
+
                             <textarea id="ideas" name="ideas" placeholder="Skriv din ide til et nyt hold."></textarea>
                         </div>
                     </div>
 
                     <button class="submit-btn" type="submit">Send ansøgning</button>
-                    <p class="success-message" id="successMessage">Tak! Din ansøgning, vi kontaker dig!</p>
+
+                    <p class="success-message" id="successMessage">
+                        Tak! Din ansøgning er sendt — vi kontakter dig snart.
+                    </p>
                 </form>
             </div>
         </section>
 
         <footer class="footer">
-            <strong>Valby IF</strong>
+            <strong>Valby IF Gymnastik</strong>
             <p>Har du spørgsmål? Kontakt os på kontakt@valbyif.dk</p>
         </footer>
     </main>
